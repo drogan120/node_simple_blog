@@ -1,7 +1,6 @@
 const dotEnv = require("dotenv");
-
-dotEnv.config();
+const config = dotEnv.config();
 
 const port = process.env.APP_PORT;
 
-module.exports = dotEnv;
+module.exports = config;
