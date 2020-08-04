@@ -1,0 +1,17 @@
+{
+  "name": "node_pug_template",
+  "version": "1.0.0",
+  "description": "nodejs app with mongodb and pug template engine",
+  "main": "app.js",
+  "author": "drogan120",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
+  }
+}
