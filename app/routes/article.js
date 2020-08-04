@@ -5,8 +5,12 @@ router.get("/", (req, res) => {
   res.render("articles/index");
 });
 
+router.get("/new", (req, res) => {
+  res.render("articles/add");
+});
+
 router.get("/:any", (req, res) => {
-  res.send("articles edit");
+  res.render("articles/edit");
 });
 
 router.post("/", (req, res) => {
