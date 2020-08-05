@@ -8,6 +8,9 @@ const config = require("./config/config");
 app.set("views", path.join(__dirname, "app/views"));
 app.set("view engine", "pug");
 
+// load public assets
+app.use(express.static(path.join(__dirname, "public")));
+
 // Route Variable
 const article = require("./app/routes/article");
 const dashboard = require("./app/routes/dashboard");
