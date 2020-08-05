@@ -1,3 +1,18 @@
-extends layout
+extends ../layout/master
 block content
-    h2 edit
+    .row
+        .col-md-12
+            .card
+                .card-body
+                    form(action="")
+                        .form-group
+                            label(for="title") Title
+                            input.form-control(type="text",name="title",placeholder='Blog Title')
+                        .form-group
+                            label(for="title") Title
+                            input.form-control(type="text",name="title",placeholder='Blog Title')
+                        .form-group
+                            label(for="content") Content
+                        textarea.form-control(name="content")
+                        .float-right
+                            button.btn.btn-info(type="submit") Save

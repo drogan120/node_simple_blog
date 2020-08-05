@@ -1,71 +1,31 @@
 extends ../layout/master
 block content
-      .row
-        .col-lg-3.col-md-6.col-sm-6
-          .card.card-stats
-            .card-body
-              .row
-                .col-5.col-md-4
-                  .icon-big.text-center.icon-warning
-                    i.nc-icon.nc-globe.text-warning
-                .col-7.col-md-8
-                  .numbers
-                    p.card-category Capacity
-                    p.card-title 150GB
-                    p
-            .card-footer
-              hr
-              .stats
-                i.fa.fa-refresh
-                |                   Update Now
-        .col-lg-3.col-md-6.col-sm-6
-          .card.card-stats
-            .card-body
-              .row
-                .col-5.col-md-4
-                  .icon-big.text-center.icon-warning
-                    i.nc-icon.nc-money-coins.text-success
-                .col-7.col-md-8
-                  .numbers
-                    p.card-category Revenue
-                    p.card-title $ 1,345
-                    p
-            .card-footer
-              hr
-              .stats
-                i.fa.fa-calendar-o
-                |                   Last day
-        .col-lg-3.col-md-6.col-sm-6
-          .card.card-stats
-            .card-body
-              .row
-                .col-5.col-md-4
-                  .icon-big.text-center.icon-warning
-                    i.nc-icon.nc-vector.text-danger
-                .col-7.col-md-8
-                  .numbers
-                    p.card-category Errors
-                    p.card-title 23
-                    p
-            .card-footer
-              hr
-              .stats
-                i.fa.fa-clock-o
-                |                   In the last hour
-        .col-lg-3.col-md-6.col-sm-6
-          .card.card-stats
-            .card-body
-              .row
-                .col-5.col-md-4
-                  .icon-big.text-center.icon-warning
-                    i.nc-icon.nc-favourite-28.text-primary
-                .col-7.col-md-8
-                  .numbers
-                    p.card-category Followers
-                    p.card-title +45K
-                    p
-            .card-footer
-              hr
-              .stats
-                i.fa.fa-refresh
-                |                   Update now
+    .row
+        .col-md-12
+            .card
+                .card-body
+                    table.table.table-bordere
+                        thead
+                            tr
+                                th No
+                                th Title
+                                th Desc
+                                th action
+                        tbody
+                            tr
+                                td 1
+                                td Content 1
+                                td Desc
+                                td
+                                    .d-inline.my-auto
+                                        a.btn.btn-primary Update
+                                        a.btn.btn-danger Delete
+                            tr
+                                td 1
+                                td Content 1
+                                td Desc
+                                td
+                                    .d-inline.my-auto
+                                        a.btn.btn-primary Update
+                                        a.btn.btn-danger Delete
+
