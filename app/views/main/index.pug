@@ -1,1 +1,20 @@
-h1 welocme to node js blog
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Node Blog
+        link(rel="stylesheet", href="/css/bootstrap.css")
+    body
+        .container
+            .row.mt-3
+                each data,i in articles
+                    .col-md-3
+                            .card
+                                .card-body
+                                    h4.text-secondary=data.title
+                                    p=data.author
+                                    .text-center.mx-auto
+                                        a.btn.btn-info(href="/"+data._id) Read
+    
+        script(src="/js/bootstrap.min.js")
