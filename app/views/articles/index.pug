@@ -4,6 +4,7 @@ block content
         .col-md-12
             .card
                 .card-body
+                    a.btn.btn-primary(href="/posts/new") New Post
                     table.table.table-bordere
                         thead
                             tr
@@ -12,20 +13,13 @@ block content
                                 th Desc
                                 th action
                         tbody
-                            tr
-                                td 1
-                                td Content 1
-                                td Desc
-                                td
-                                    .d-inline.my-auto
-                                        a.btn.btn-primary Update
-                                        a.btn.btn-danger Delete
-                            tr
-                                td 1
-                                td Content 1
-                                td Desc
-                                td
-                                    .d-inline.my-auto
-                                        a.btn.btn-primary Update
-                                        a.btn.btn-danger Delete
+                            each post, i in posts
+                                tr
+                                    td=i+1
+                                    td=post.title
+                                    td=post.author
+                                    td
+                                        .d-inline.my-auto
+                                            a.btn.btn-primary(href='/posts/edit/'+post._id) Update
+                                            a.btn.btn-danger Delete
 

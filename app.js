@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const config = require("./config/config");
 
@@ -11,13 +13,20 @@ app.set("view engine", "pug");
 // load public assets
 app.use(express.static(path.join(__dirname, "public")));
 
+// body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// enable cors
+app.use(cors());
+
 // Route Variable
 const posts = require("./app/routes/post");
 const dashboard = require("./app/routes/dashboard");
 const main = require("./app/routes/main");
 // route
 app.use("/", main);
-app.use("/post", posts);
+app.use("/posts", posts);
 app.use("/dashboard", dashboard);
 
 // Listen server

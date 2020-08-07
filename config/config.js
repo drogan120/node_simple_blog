@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const dotEnv = require("dotenv");
 dotEnv.config();
-
+mongoose.Promise = global.Promise;
 mongoose
-  .createConnection(process.env.MONGO_URL, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
