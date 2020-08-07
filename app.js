@@ -12,10 +12,12 @@ app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 
 // Route Variable
-const article = require("./app/routes/article");
+const posts = require("./app/routes/post");
 const dashboard = require("./app/routes/dashboard");
+const main = require("./app/routes/main");
 // route
-app.use("/articles", article);
+app.use("/", main);
+app.use("/post", posts);
 app.use("/dashboard", dashboard);
 
 // Listen server

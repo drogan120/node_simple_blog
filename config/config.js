@@ -1,6 +1,15 @@
+const mongoose = require("mongoose");
 const dotEnv = require("dotenv");
-const config = dotEnv.config();
+dotEnv.config();
 
-const port = process.env.APP_PORT;
-
-module.exports = config;
+mongoose
+  .createConnection(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("mongo db connected on " + process.env.MONGO_URL);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
