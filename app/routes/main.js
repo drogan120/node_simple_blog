@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/articles/:id", (req, res) => {
   Post.findById(req.params.id, (err, data) => {
     res.send({ articles: data });
   });

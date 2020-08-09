@@ -4,7 +4,7 @@ block content
         .col-md-12
             .card
                 .card-body
-                    form(action="")
+                    form(action="/posts/edit/"+posts._id,method="post")
                         .form-group
                             label(for="title") Title
                             input.form-control(type="text",name="title",value=posts.title)

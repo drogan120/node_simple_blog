@@ -26,8 +26,8 @@ const dashboard = require("./app/routes/dashboard");
 const main = require("./app/routes/main");
 // route
 app.use("/", main);
-app.use("/posts", posts);
 app.use("/dashboard", dashboard);
+app.use("/posts", posts);
 
 // Listen server
 app.listen(process.env.APP_PORT, () => {
