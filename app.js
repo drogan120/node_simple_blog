@@ -21,13 +21,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // Route Variable
-const posts = require("./app/routes/post");
-const dashboard = require("./app/routes/dashboard");
 const main = require("./app/routes/main");
+const dashboard = require("./app/routes/dashboard");
+const posts = require("./app/routes/post");
+const tags = require("./app/routes/tags");
 // route
 app.use("/", main);
 app.use("/dashboard", dashboard);
 app.use("/posts", posts);
+app.use("/tags", tags);
 
 // Listen server
 app.listen(process.env.APP_PORT, () => {

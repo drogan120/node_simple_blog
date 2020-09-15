@@ -1,0 +1,22 @@
+extends ../layout/master
+block content
+    .row
+        .col-md-12
+            .card
+                .card-body
+                    a.btn.btn-primary(href="/tags/new") New tag
+                    table.table.table-bordere
+                        thead
+                            tr
+                                th No
+                                th Name
+                        tbody
+                            each tag, i in tags
+                                tr
+                                    td=i+1
+                                    td=tag.name
+                                    td
+                                        .d-inline.my-auto
+                                            a.btn.btn-primary(href='/tags/edit/'+tag._id) Update
+                                            a.btn.btn-danger.delete-tag(href="#",data-id=tag._id) Delete
+

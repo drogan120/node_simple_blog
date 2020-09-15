@@ -15,3 +15,21 @@ $(document).ready(function () {
     });
   });
 });
+
+$(document).ready(function () {
+  $(".delete-tag").on("click", function (e) {
+    $target = $(e.target);
+    const id = $target.attr("data-id");
+    $.ajax({
+      type: "DELETE",
+      url: "/tags/" + id,
+      success: function (response) {
+        alert("tag has been deleted");
+        window.location.href = "/tags";
+      },
+      error: function (err) {
+        console.log(err);
+      },
+    });
+  });
+});

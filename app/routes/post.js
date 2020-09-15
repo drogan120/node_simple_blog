@@ -10,7 +10,6 @@ router.get("/", (req, res) => {
       console.log(err);
     } else {
       res.render("articles/index", { posts: data });
-      console.log(data);
     }
   });
 });

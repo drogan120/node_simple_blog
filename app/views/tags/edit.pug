@@ -1,0 +1,12 @@
+extends ../layout/master
+block content
+    .row
+        .col-md-12
+            .card
+                .card-body
+                    form(action="/tags/edit/"+data._id,method="POST")
+                        .form-group
+                            label(for="name") Tags Name
+                            input.form-control(type="text",name="name",value=data.name)
+                        .float-right
+                            button.btn.btn-info(type="submit") Save
