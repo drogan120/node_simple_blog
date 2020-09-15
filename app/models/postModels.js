@@ -15,6 +15,10 @@ let postSchema = new Schema({
     type: String,
     required: true,
   },
+  tags: {
+    type: String,
+    required: true,
+  },
 });
 const Posts = mongoose.model("posts", postSchema);
 module.exports = Posts;

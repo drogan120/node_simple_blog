@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Models
 let Posts = require("../models/postModels");
+let Tags = require("../models/tagsModel");
 
 router.get("/", (req, res) => {
   Posts.find({}, (err, data) => {
@@ -19,13 +20,25 @@ router.get("/edit/:id", (req, res) => {
     if (err != null) {
       console.log(err);
     } else {
-      res.render("articles/edit", { posts: data });
+      Tags.find({}, (err, tags) => {
+        if (err != null) {
+          console.log(err);
+        } else {
+          res.render("articles/edit", { posts: data, tags: tags });
+        }
+      });
     }
   });
 });
 
 router.get("/new", (req, res) => {
-  res.render("articles/new");
+  Tags.find({}, (err, data) => {
+    if (err != null) {
+      console.log(err);
+    } else {
+      res.render("articles/new", { tags: data });
+    }
+  });
 });
 
 // Save Post to database
@@ -33,6 +46,7 @@ router.post("/", (req, res) => {
   let post = new Posts();
   post.title = req.body.title;
   post.author = req.body.author;
+  post.tags = req.body.tags;
   post.content = req.body.content;
 
   post.save((err) => {
@@ -50,8 +64,8 @@ router.post("/edit/:id", (req, res) => {
   let post = {};
   post.title = req.body.title;
   post.author = req.body.author;
+  post.tags = req.body.tags;
   post.content = req.body.content;
-  console.log("updateb section");
 
   let query = { _id: req.params.id };
   Posts.update(query, post, (err) => {
