@@ -32,6 +32,6 @@ app.use("/posts", posts);
 app.use("/tags", tags);
 
 // Listen server
-app.listen(process.env.APP_PORT, () => {
-  console.log("Server is running on http://127.0.0.1:" + process.env.APP_PORT);
+app.listen(config.port, () => {
+  console.log("Server is running on http://127.0.0.1:" + config.port);
 });
