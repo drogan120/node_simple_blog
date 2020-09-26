@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
-const cors = require("cors");
+const flash = require("connect-flash");
+const session = require("express-session");
 
 const config = require("./config/config");
 
@@ -17,8 +18,22 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// enable cors
-app.use(cors());
+// Express Sessions
+app.use(
+  session({
+    secret: "drogan120",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+  })
+);
+
+// Express Messages
+app.use(require("connect-flash")());
+app.use((req, res, next) => {
+  res.locals.messages = require("express-messages")(req, res);
+  next();
+});
 
 // Route Variable
 const main = require("./app/routes/main");

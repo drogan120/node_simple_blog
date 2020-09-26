@@ -30,6 +30,7 @@ body
         .main-panel
             include navbar
             .content
+                != messages('../messages/message',locals)
                 block content
 // Core JS Files
 script(src='/paper/js/core/jquery.min.js')

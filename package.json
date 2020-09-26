@@ -1,7 +1,7 @@
 {
-  "name": "node_pug_template",
+  "name": "node_blog",
   "version": "1.0.0",
-  "description": "nodejs app with mongodb and pug template engine",
+  "description": "nodejs blog app with mongodb and pug template engine",
   "main": "app.js",
   "author": "drogan120",
   "license": "MIT",

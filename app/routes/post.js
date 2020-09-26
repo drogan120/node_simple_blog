@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const { body, validationResult } = require("express-validator");
 // Models
 let Posts = require("../models/postModels");
 let Tags = require("../models/tagsModel");
@@ -68,11 +68,12 @@ router.post("/edit/:id", (req, res) => {
   post.content = req.body.content;
 
   let query = { _id: req.params.id };
-  Posts.update(query, post, (err) => {
+  Posts.updateOne(query, post, (err) => {
     if (err) {
       console.log(err);
       return;
     } else {
+      req.flash("success", "articles has been updated");
       res.redirect("/posts");
     }
   });
