@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 // Models
-let Posts = require("../models/postModels");
+let Posts = require("../models/postModel");
 let Tags = require("../models/tagsModel");
 
 router.get("/", (req, res) => {

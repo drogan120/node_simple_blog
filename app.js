@@ -40,12 +40,14 @@ const main = require("./app/routes/main");
 const dashboard = require("./app/routes/dashboard");
 const posts = require("./app/routes/post");
 const tags = require("./app/routes/tags");
+const user = require("./app/routes/user");
+
 // route
 app.use("/", main);
 app.use("/dashboard", dashboard);
 app.use("/posts", posts);
 app.use("/tags", tags);
-
+app.use("/user", user);
 // Listen server
 app.listen(config.port, () => {
   console.log("Server is running on http://127.0.0.1:" + config.port);

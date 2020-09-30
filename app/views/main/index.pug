@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Node Blog
-        link(rel="stylesheet", href="/css/bootstrap.css")
-    body
+extends ../layout/standard
+block content
         .container
             .row.mt-3
                 each data,i in articles
