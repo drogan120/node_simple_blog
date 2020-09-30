@@ -4,19 +4,19 @@ block content
         .card.shadow
             h4.text-secondary.text-center.my-3 Register Account
             .card-body
-                form(action="", method="post")
+                form(action="/user", method="post")
                     .form-group
                         label(for="name") Name
-                        input.form-control(type="text",placeholder="Username")
+                        input.form-control(type="text",placeholder="Username",name="name")
                     .form-group
                         label(for="email") Email
-                        input.form-control(type="text",placeholder="Your@mail.com")
+                        input.form-control(type="text",placeholder="Your@mail.com",name="email")
                     .form-group
                         label(for="username") Username
-                        input.form-control(type="text",placeholder="Username")
+                        input.form-control(type="text",placeholder="Username",name="username")
                     .form-group
                         label(for="password") Password
-                        input.form-control(type="password",placeholder="Password")
+                        input.form-control(type="password",placeholder="Password",name="password")
                     .ml-auto
                         button.btn.btn-danger.mr-2(type="reset") Reset
                         button.btn.btn-info.ml-2(type="submit") Register
