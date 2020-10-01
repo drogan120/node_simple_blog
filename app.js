@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
 const session = require("express-session");
+const passport = require("passport");
 
 const config = require("./config/config");
 
@@ -34,6 +35,11 @@ app.use((req, res, next) => {
   res.locals.messages = require("express-messages")(req, res);
   next();
 });
+
+// Passport Config
+require("./config/passport")(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Route Variable
 const main = require("./app/routes/main");
