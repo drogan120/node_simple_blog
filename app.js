@@ -41,6 +41,10 @@ require("./config/passport")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("*", (req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 // Route Variable
 const main = require("./app/routes/main");
 const dashboard = require("./app/routes/dashboard");

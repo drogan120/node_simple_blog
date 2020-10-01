@@ -27,6 +27,11 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/user/login");
+});
+
 // Save Post to database
 router.post("/", (req, res) => {
   let user = new User({
