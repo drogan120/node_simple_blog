@@ -19,20 +19,28 @@ router.get("/", (req, res) => {
 });
 // Save Post to database
 router.post("/", (req, res) => {
-  let user = new User();
-  user.name = req.body.name;
-  user.email = req.body.email;
-  user.username = req.body.username;
-  user.password = req.body.password;
+  let user = new User({
+    name: req.body.name,
+    email: req.body.email,
+    username: req.body.username,
+    password: req.body.password,
+  });
 
-  user.save((err) => {
-    if (err) {
-      console.log(err);
-      return;
-    } else {
-      res.redirect("/user/login");
-    }
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(user.password, salt, (err, hash) => {
+      if (err) {
+        console.log(err);
+      }
+      user.password = hash;
+      user.save((err) => {
+        if (err) {
+          console.log(err);
+          return;
+        } else {
+          res.redirect("/user/login");
+        }
+      });
+    });
   });
 });
-
 module.exports = router;
